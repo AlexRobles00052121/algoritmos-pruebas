@@ -1,0 +1,50 @@
+function minVitamins(vitamins, V, maximum):
+    // Create an array to store the minimum number of vitamins needed for each speed
+    dp[maximum + 1]
+
+    // Initialize the array with values greater than the maximum possible vitamins needed
+    for i from 0 to maximum:
+        dp[i] = maximum + 1
+
+    // Base case: No vitamins needed for speed 0
+    dp[0] = 0
+
+    // Iterate through each vitamin and update the array based on the minimum vitamins needed
+    for i from 0 to V - 1:
+        for j from vitamins[i] to maximum:
+            // Check if the current vitamin helps achieve a lower number of vitamins for the current speed
+            if dp[j - vitamins[i]] is not (maximum + 1):
+                dp[j] = min(dp[j], dp[j - vitamins[i]] + 1)
+
+    // Return the minimum vitamins needed for the maximum speed, or -1 if not possible
+    if dp[maximum] is not (maximum + 1):
+        return dp[maximum]
+    else:
+        return -1
+
+function main():
+    // Number of test cases
+    T = input()
+
+    for t from 0 to T - 1:
+        // Gauge and number of vitamins
+        G = input()
+        V = input()
+
+        // Array to store the vitamins
+        vitamins[V]
+
+        // Input the vitamins
+        for i from 0 to V - 1:
+            vitamins[i] = input()
+
+        // Calculate the minimum amount of vitamins
+        result = minVitamins(vitamins, V, G)
+
+        // Display the result
+        if result is not -1:
+            output result
+        else:
+            output "It is not possible to reach the maximum speed with the given vitamins."
+
+// End of program

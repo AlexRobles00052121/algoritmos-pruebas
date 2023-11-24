@@ -1,0 +1,28 @@
+function maxSumSubsequence(arr, n):
+    maxSum = 0
+    currSum = 0
+
+    for i from 0 to n - 1:
+        currSum = max(0, currSum + arr[i])
+        maxSum = max(maxSum, currSum)
+
+    return maxSum
+
+function main():
+    t = input()
+
+    while t > 0:
+        n = input()
+
+        jars[n]
+
+        for i from 0 to n - 1:
+            jars[i] = input()
+
+        maxStrawberry = maxSumSubsequence(jars, n)
+
+        output maxStrawberry
+
+        t = t - 1
+
+// End of program

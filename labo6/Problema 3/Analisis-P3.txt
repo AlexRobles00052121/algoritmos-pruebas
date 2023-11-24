@@ -1,0 +1,44 @@
+1. Formal definition of the problem
+
+Entrance:
+    B = Total available budget ($)
+    S = Set of n actors
+    Salary(s) = Salary requested by the actor s for a role
+Restrictions:
+    An actor can have multiple roles
+    The total amount of wages paid must not exceed B
+Aim:
+    Hire a subset of actors C ⊆ S
+    Minimize |C| (number of actors hired)
+    Subject to: that ∑ Salary(c) for all c ∈ C is equal to B
+Exit:
+    Minimum cardinality |C| of the solution subset
+
+2. PD related cases
+    Coin Change Problem
+    Minimum Cardinality Knapsack
+
+3. Analogy
+    Each actor with his salary is like a "coin" with a certain value
+    We must add the salaries (combine currencies) to equal the total of B
+    We want the combination with the least amount of coins (actors)
+
+4. Optimal sub-problems
+Let A(i, s) = Smallest number of actors that total a salary of s, considering the first i actors.
+
+A(i, s) = min { A(i-1, s), 1 + A(i - 1, s - Salary(i)) }
+
+By optimally calculating A(i, s) we arrive at A(n, B) which is the global optimal solution.
+
+-----------------
+Case of DP
+-----------------
+
+This actor hiring optimization problem under a fixed budget can be modeled as a variant of the typical minimum currency exchange problem using Dynamic Programming.
+
+The analogy with the currency exchange problem is the following:
+
+The budget available for actors is equal to the total amount from which change must be made.
+Each actor with their respective salary represents a different "denomination of currency."
+We can hire an actor as many times as possible (as if we had infinite coins of each denomination).
+The objective is to exactly cover the entire available budget (give the full change) minimizing the TOTAL AMOUNT of hired actors (equivalent to the number of coins).

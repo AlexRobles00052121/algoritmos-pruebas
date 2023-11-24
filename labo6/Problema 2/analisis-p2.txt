@@ -1,0 +1,50 @@
+formal definition
+
+Entrance:
+    G = Speed ​​limit (integer)
+    V = Number of vitamins (integer)
+    Boosts[] = Increase of each vitamin (integers)
+
+Solution:
+    Subset C of vitamins
+    |C| = Amount of vitamins in the solution
+
+Restrictions:
+    Sum of vitamin increases in C ≤ G
+
+PD related cases
+    Coin Change Problem
+
+Aim:
+    Minimize |C|
+    Subject to speed limit restriction
+
+Analogy
+    G limit equivalent to backpack size
+    Each vitamin is an item with speed increase value
+    We must maximize total speed with the least amount of vitamins
+
+Optimal sub-problems
+
+Let A(i, v) = Minimum amount of vitamins that give a total increase in v, considering the first i vitamins.
+
+A(i, v) = Min { A(i-1, v), 1 + A(i - 1, v - Boosts(i)) }
+
+By optimally calculating A(i, v) the global optimal solution is obtained.
+
+-----------------
+Case of DP
+-----------------
+
+This vitamin optimization problem to improve the Pokémon's speed can also be modeled as a variant of the typical minimum coin change problem using Dynamic Programming.
+
+The analogy is:
+
+     The speed limit or meter is equivalent to the total amount for which change must be made.
+
+     Each type of vitamin represents a different “currency denomination,” with a speed-up value.
+
+     We can use each vitamin multiple times (as if we had infinite coins).
+
+     The goal is to reach the speed limit (make full change) using the MINIMUM amount of vitamins (equivalent to the least amount of coins).
+

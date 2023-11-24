@@ -1,0 +1,49 @@
+function minActors(salaries, budget, n):
+    // Create an array to store the minimum number of actors needed for each budget
+    dp[budget + 1]
+
+    // Initialize the array with values greater than the maximum possible actors needed
+    for i from 0 to budget:
+        dp[i] = budget + 1
+
+    // Base case: No actors needed for budget 0
+    dp[0] = 0
+
+    // Iterate through each salary and update the array based on the minimum actors needed
+    for i from 0 to n - 1:
+        for j from salaries[i] to budget:
+            // Check if the current salary helps achieve a lower number of actors for the current budget
+            if dp[j - salaries[i]] is not (n + 1):
+                dp[j] = min(dp[j], dp[j - salaries[i]] + 1)
+
+    // Return the minimum actors needed for the maximum budget, or -1 if not possible
+    if dp[budget] is not (budget + 1):
+        return dp[budget]
+    else:
+        return -1
+
+function main():
+    // Number of test cases
+    t = input()
+
+    while t > 0:
+        // Input the budget and number of actors
+        budget = input()
+        n = input()
+
+        // Array to store the salaries
+        salaries[n]
+
+        // Input the salaries
+        for i from 0 to n - 1:
+            salaries[i] = input()
+
+        // Calculate the minimum number of actors
+        result = minActors(salaries, budget, n)
+
+        // Output the result
+        output result
+
+        t = t - 1
+
+    // End of program

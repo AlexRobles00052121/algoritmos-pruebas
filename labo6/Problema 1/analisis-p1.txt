@@ -1,0 +1,51 @@
+formal definition
+
+Entrance:
+    T = Number of test cases
+    N = Number of jam jars per case
+    Jars[] = Excess/defect amount of strawberry in each jar
+
+Solution:
+    Contiguous sequence of jars
+
+Aim:
+    Maximize excess strawberry sum in largest contiguous sequence
+
+Relationship with other problems
+    Maximum subsequence sum problem
+    Typical case of optimization using dynamic programming
+
+Analogy
+    Each jar is an element with a certain amount of excess or deficient strawberry
+    We must find the adjacent segment of jars that maximizes the total amount of strawberry
+
+Optimal sub-problems
+    Let S(i) = Maximum sum of strawberry that ends up in the ith jar.
+
+S(i) = Max { S(i-1) + jars[i], jars[i] }
+
+By recursion and PD, S(i) is optimally calculated and the solution is obtained.
+
+-----------------
+Case of DP
+-----------------
+
+Maximum subsequence sum
+(Maximum subarray problem)
+
+This is a classic case of optimization through dynamic programming.
+
+The analogy with the jar problem is the following:
+
+    The jars with quantities of strawberry would be the "elements" of the sequence.
+    Each quantity indicates how much strawberry there is excess or deficiency in that jar.
+    They can take positive and negative values.
+
+The objective is:
+
+    Find the adjacent segment (subsequence of consecutive jars)
+    That maximizes the total amount of excess strawberry.
+
+Since it is an optimal substructure (the maximum sum until a certain index is reached), the dynamic programming technique can be applied to efficiently reconstruct the solution.
+
+The maximum sum is optimally calculated from the first bottles, saving the partial maximums in each step.
